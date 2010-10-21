@@ -1,4 +1,4 @@
-USART.o: ../USART.c ../defines.h \
+USART.o: ../includes/USART.c ../includes/../defines.h \
   c:/winavr-20100110/lib/gcc/../../avr/include/stdint.h \
   c:/winavr-20100110/lib/gcc/../../avr/include/avr/io.h \
   c:/winavr-20100110/lib/gcc/../../avr/include/avr/sfr_defs.h \
@@ -9,9 +9,9 @@ USART.o: ../USART.c ../defines.h \
   c:/winavr-20100110/lib/gcc/../../avr/include/avr/version.h \
   c:/winavr-20100110/lib/gcc/../../avr/include/avr/fuse.h \
   c:/winavr-20100110/lib/gcc/../../avr/include/avr/lock.h \
-  C:\Users\Manuel\ Vieda\Documents\Smart\ Grids\AVR\ Projects\ZigBeeController\includes/USART.h
+  ../includes/USART.h
 
-../defines.h:
+../includes/../defines.h:
 
 c:/winavr-20100110/lib/gcc/../../avr/include/stdint.h:
 
@@ -33,4 +33,4 @@ c:/winavr-20100110/lib/gcc/../../avr/include/avr/fuse.h:
 
 c:/winavr-20100110/lib/gcc/../../avr/include/avr/lock.h:
 
-C:\Users\Manuel\ Vieda\Documents\Smart\ Grids\AVR\ Projects\ZigBeeController\includes/USART.h:
+../includes/USART.h:

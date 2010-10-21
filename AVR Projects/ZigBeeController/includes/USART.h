@@ -8,8 +8,8 @@
  *
  * Archivo:				USART.h
  * Fecha Creacion:		Mayo  15 de 2010
- * Fecha Modificacion:	Mayo  18 de 2010
- * Version (Revision):  0.1 (2)
+ * Fecha Modificacion:	Octubre 19 de 2010
+ * Version (Revision):  0.2 (1)
  *
  * Descripcion: Libreria que facilita el uso del modulo de comunicación
  *              asincrona y asincrona de los microcontroladores ATmega
@@ -42,6 +42,16 @@
 //-------------------------------------------------------------------------------
 //  PARAMAETROS DE CONFIGURACION QUE PUEDEN SER MODIFICADOS POR EL USUARIO
 //-------------------------------------------------------------------------------
+
+#ifndef F_CPU
+
+	#error "ERROR: No se encuentra definida la frecuencia del reloj (F_CPU). Se ha definido una frecuencia de operación de 8MHz por defecto"
+	#define F_CPU 8000000UL
+
+#endif
+
+
+
 
 /**
  *  Tasa de transmision en Baudios
@@ -126,86 +136,90 @@
  *          listo para enviar y recibir datos.
  * @RETURN: Void
  */
-void USART0_init();
+void USART_init();
 
 
 /**
- * USART0_EnableTx
+ * USART_EnableTx
  * @PARAMS: Ninguno
  * @PRE:    El puerto USART0 se encuentra inicializado
  * @POST:   El puerto USART0 se habilita para transmision 
  * @RETURN: Void
  */
-void USART0_EnableTx();
+void USART_EnableTx();
 
 /**
- * USART0_DisableTx
+ * USART_DisableTx
  * @PARAMS: Ninguno
  * @PRE:    El puerto USART0 se encuentra inicializado
  * @POST:   El puerto USART0 se deshabilita para transmision 
  * @RETURN: Void
  */
-void USART0_DisableTx();
+void USART_DisableTx();
 
 /**
- * USART0_EnableRx
+ * USART_EnableRx
  * @PARAMS: Ninguno
  * @PRE:    El puerto USART0 se encuentra inicializado
  * @POST:   El puerto USART0 se habilita para Recepsion 
  * @RETURN: Void
  */
-void USART0_EnableRx();
+void USART_EnableRx();
 
 
 /**
- * USART0_DisableRx
+ * USART_DisableRx
  * @PARAMS: Ninguno
  * @PRE:    El puerto USART0 se encuentra inicializado
  * @POST:   El puerto USART0 se deshabilita para Recepcion 
  * @RETURN: Void
  */
- void USART0_DisableRx();
+ void USART_DisableRx();
 
 
  /**
-  * USART0_Enviar
+  * USART_Enviar
   * @PARAMS: uint8_t dato -> Dato que se desea enviar
   * @PRE:    El puerto USART0 se encuentra configurado y habilitado para el envio de mensajes
   * @POST:   Se coloca el mensaje en el buffer de salida de la USART0
   * @RETURN: Void
   */
-void USART0_Enviar(uint8_t dato);
+void USART_Enviar(uint8_t dato);
 
 
 /**
- * USART0_Recibir
+ * USART_Recibir
  * @PARAMS: Ninguno
  * @PRE:    El puerto USART0 se encuentra configurado y habilitado para la recepcion de mensajes
  * @POST:   Se retorno el mensaje que se almaceno en el buffer de entrada de la USART0
  * @RETURN: uint8_t dato -> El dato recibido en la transmision
  */
-uint8_t USART0_Recibir();
+uint8_t USART_Recibir();
 
 
 /**
- * USART0_EnviarStrLen
+ * USART_EnviarStrLen
  * @PARAMS: int len -> Longitud de la cadena que se desea transmitir.
  *			char *buf -> Apuntador al primer caracter de la cadena que se desea transmitir
  * @PRE:    El puerto USART0 se encuentra configurado y habilitado para la recepcion de mensajes
  * @POST:   Se coloca en el buffer de salida cada uno de los caracteres que componen el mensaje que se desa tranmitir [*buf, *buf+len]
  * @RETURN: 
  */
-void USART0_EnviarStrLen(int len, char *buf);
+void USART_EnviarStrLen(int len, char *buf);
+
+
 
 /**
+ * USART_EnviarStr(str)
  * Envia un String por la USART
  */
-#define USART0_EnviarStr(str) USART0_EnviarStrLen(sizeof(str)-1, str)
+#define USART_EnviarStr(str) USART0_EnviarStrLen(sizeof(str)-1, str)
 
 /**
+ * USART_EnviarLn(str)
  * Envian una linea de String (String + /n)
  */
-#define USART0_EnviarLn(str) USART0_EnviarStrLen(sizeof(str)-1, str); USART0_Enviar(0x0D)
+#define USART_EnviarLn(str) USART0_EnviarStrLen(sizeof(str)-1, str); USART0_Enviar(0x0D)
 
 
 #endif /* _USART_H */
