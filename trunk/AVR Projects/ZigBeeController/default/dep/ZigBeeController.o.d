@@ -14,7 +14,8 @@ ZigBeeController.o: ../ZigBeeController.c ../defines.h \
   c:/winavr-20100110/lib/gcc/../../avr/include/avr/version.h \
   c:/winavr-20100110/lib/gcc/../../avr/include/avr/fuse.h \
   c:/winavr-20100110/lib/gcc/../../avr/include/avr/lock.h \
-  c:/winavr-20100110/lib/gcc/../../avr/include/avr/pgmspace.h
+  c:/winavr-20100110/lib/gcc/../../avr/include/avr/pgmspace.h \
+  ../includes/USART.h
 
 ../defines.h:
 
@@ -49,3 +50,5 @@ c:/winavr-20100110/lib/gcc/../../avr/include/avr/fuse.h:
 c:/winavr-20100110/lib/gcc/../../avr/include/avr/lock.h:
 
 c:/winavr-20100110/lib/gcc/../../avr/include/avr/pgmspace.h:
+
+../includes/USART.h:

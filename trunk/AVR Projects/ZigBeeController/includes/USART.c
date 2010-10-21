@@ -1,15 +1,15 @@
 /**
  * -------------------------------------------------------------------
  * Copyright (c) 2010 - Todos los derechos reservados
- * Manuel Eduardo Vieda Salomon <me.vieda372@gmail.com
+ * Manuel Eduardo Vieda Salomon <mail@manuelvieda.com>
  * Ingeniero Electronico, Ingeniero de Sistemas y Computacion
  * Universidad de los Andes. Bogota, Colombia.
  * -------------------------------------------------------------------
  *
  * Archivo:				USART.c
  * Fecha Creacion:		Mayo  15 de 2010
- * Fecha Modificacion:	Mayo  18 de 2010
- * Version (Revision):	0.1 (2)
+ * Fecha Modificacion:	Octubre 19 de 2010
+ * Version (Revision):	0.2 (1)
  *
  * Descripcion:	Libreria que facilita el uso del modulo de comunicación
  *              asincrona y asincrona de los microcontroladores ATmega 48/88/168/644
@@ -35,7 +35,8 @@
  * ---------------------------------------------------------------------
  */
 
- #include "defines.h"
+
+ #include "../defines.h"
  #include <stdint.h>
  #include <avr/io.h>
  #include "USART.h"
@@ -71,7 +72,8 @@ void USART_init(){
 		
 	}else{
 		// Configurado en modo Sincrono
-		UCSRC |= (1<<6);		
+		//UCSRC |= (1<<6);
+		UCSRC |= _BV(UMSEL);		
 	}
 
 	switch(CHAR_SIZE){
@@ -98,7 +100,7 @@ void USART_init(){
 
 
 /**
- * USART0_EnableTx
+ * USART_EnableTx
  * @PARAMS: Ninguno
  * @PRE:    El puerto USART0 se encuentra inicializado
  * @POST:   El puerto USART0 se habilita para transmision 
@@ -109,7 +111,7 @@ void USART_EnableTx(){
 }
 
 /**
- * USART0_DisableTx
+ * USART_DisableTx
  * @PARAMS: Ninguno
  * @PRE:    El puerto USART0 se encuentra inicializado
  * @POST:   El puerto USART0 se deshabilita para transmision 
@@ -132,7 +134,7 @@ void USART_EnableRx(){
 
 
 /**
- * USART0_DisableRx
+ * USART_DisableRx
  * @PARAMS: Ninguno
  * @PRE:    El puerto USART0 se encuentra inicializado
  * @POST:   El puerto USART0 se deshabilita para Recepcion 
@@ -168,20 +170,24 @@ void USART_Enviar(uint8_t dato){
  * @POST:   Se retorno el mensaje que se almaceno en el buffer de entrada de la USART0
  * @RETURN: uint8_t dato -> El dato recibido en la transmision
  */
-uint8_t USART0_Recibir(){
+uint8_t USART_Recibir(){
 
 	// Se espera a que se reciba un mensaje si esta no ha llegado todavia
 	while ( !(UCSRA & (1<<RXC)) );
-
 	return UDR;
 }
 
 
-void USART0_EnviarStrLen(int len, char *buf){
+/**
+ * USART_EnviarStrLen(int len, char *buf)
+ * @PARAMS:
+ * @PRE:
+ * @POST:
+ * @RETURN:
+ */
+void USART_EnviarStrLen(int len, char *buf){
 
 	for (; len > 0; len--){
 		USART_Enviar(*buf++);
 	}
-
-
 }

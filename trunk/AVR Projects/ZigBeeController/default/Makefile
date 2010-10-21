@@ -15,7 +15,7 @@ COMMON = -mmcu=$(MCU)
 
 ## Compile options common for all C compilation units.
 CFLAGS = $(COMMON)
-CFLAGS += -Wall -gdwarf-2 -Os -std=gnu99 -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums
+CFLAGS += -Wall -gdwarf-2 -std=gnu99   -Os -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums
 CFLAGS += -MD -MP -MT $(*F).o -MF dep/$(@F).d 
 
 ## Assembly specific flags
@@ -37,10 +37,10 @@ HEX_EEPROM_FLAGS += --change-section-lma .eeprom=0 --no-change-warnings
 
 
 ## Include Directories
-INCLUDES = -I"C:\Users\Manuel Vieda\Documents\Smart Grids\AVR Projects\ZigBeeController\includes" 
+INCLUDES = -I"C:\Users\Public\Documents\Taller de Control - Tesis\AVR Projects\ZigBeeController\includes" 
 
 ## Objects that must be built in order to link
-OBJECTS = ZigBeeController.o USART.o 
+OBJECTS = ZigBeeController.o ZigBee.o USART.o 
 
 ## Objects explicitly added by the user
 LINKONLYOBJECTS = 
@@ -52,7 +52,10 @@ all: $(TARGET) ZigBeeController.hex ZigBeeController.eep ZigBeeController.lss si
 ZigBeeController.o: ../ZigBeeController.c
 	$(CC) $(INCLUDES) $(CFLAGS) -c  $<
 
-USART.o: ../USART.c
+ZigBee.o: ../includes/ZigBee.c
+	$(CC) $(INCLUDES) $(CFLAGS) -c  $<
+
+USART.o: ../includes/USART.c
 	$(CC) $(INCLUDES) $(CFLAGS) -c  $<
 
 ##Link

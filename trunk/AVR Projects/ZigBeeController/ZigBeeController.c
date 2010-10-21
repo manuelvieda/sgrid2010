@@ -14,6 +14,10 @@
  */
 
 
+
+#define F_CPU 8000000UL
+
+
 // Used Libraries
 
 #include "defines.h"
@@ -23,6 +27,8 @@
 #include <util/delay.h>		// Convenience functions for busy-wait delay loops
 #include <avr/io.h>			// AVR device-specific IO definitions
 #include <avr/pgmspace.h>	// Program Space Utilities
+
+#include "includes/USART.h"
 
 
 //  ---------------------------------------------------------------------------
