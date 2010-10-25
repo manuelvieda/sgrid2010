@@ -3,49 +3,53 @@ ZigBeeController.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         0000009a  00000000  00000000  00000054  2**1
+  0 .text         00000628  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .debug_aranges 00000040  00000000  00000000  000000ee  2**0
+  1 .data         0000002e  00800060  00000628  000006bc  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .bss          00000066  0080008e  0080008e  000006ea  2**0
+                  ALLOC
+  3 .debug_aranges 00000060  00000000  00000000  000006ea  2**0
                   CONTENTS, READONLY, DEBUGGING
-  2 .debug_pubnames 000000d5  00000000  00000000  0000012e  2**0
+  4 .debug_pubnames 0000015d  00000000  00000000  0000074a  2**0
                   CONTENTS, READONLY, DEBUGGING
-  3 .debug_info   00000295  00000000  00000000  00000203  2**0
+  5 .debug_info   00001338  00000000  00000000  000008a7  2**0
                   CONTENTS, READONLY, DEBUGGING
-  4 .debug_abbrev 000001a9  00000000  00000000  00000498  2**0
+  6 .debug_abbrev 00000324  00000000  00000000  00001bdf  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_line   000002ec  00000000  00000000  00000641  2**0
+  7 .debug_line   00000afe  00000000  00000000  00001f03  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_frame  000000c0  00000000  00000000  00000930  2**2
+  8 .debug_frame  00000120  00000000  00000000  00002a04  2**2
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_str    0000019c  00000000  00000000  000009f0  2**0
+  9 .debug_str    0000021f  00000000  00000000  00002b24  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_loc    00000040  00000000  00000000  00000b8c  2**0
+ 10 .debug_loc    000009c1  00000000  00000000  00002d43  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_ranges 00000018  00000000  00000000  00000bcc  2**0
+ 11 .debug_ranges 00000018  00000000  00000000  00003704  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
 
 00000000 <__vectors>:
    0:	12 c0       	rjmp	.+36     	; 0x26 <__ctors_end>
-   2:	19 c0       	rjmp	.+50     	; 0x36 <__bad_interrupt>
-   4:	18 c0       	rjmp	.+48     	; 0x36 <__bad_interrupt>
-   6:	17 c0       	rjmp	.+46     	; 0x36 <__bad_interrupt>
-   8:	16 c0       	rjmp	.+44     	; 0x36 <__bad_interrupt>
-   a:	15 c0       	rjmp	.+42     	; 0x36 <__bad_interrupt>
-   c:	14 c0       	rjmp	.+40     	; 0x36 <__bad_interrupt>
-   e:	13 c0       	rjmp	.+38     	; 0x36 <__bad_interrupt>
-  10:	12 c0       	rjmp	.+36     	; 0x36 <__bad_interrupt>
-  12:	11 c0       	rjmp	.+34     	; 0x36 <__bad_interrupt>
-  14:	10 c0       	rjmp	.+32     	; 0x36 <__bad_interrupt>
-  16:	0f c0       	rjmp	.+30     	; 0x36 <__bad_interrupt>
-  18:	0e c0       	rjmp	.+28     	; 0x36 <__bad_interrupt>
-  1a:	0d c0       	rjmp	.+26     	; 0x36 <__bad_interrupt>
-  1c:	0c c0       	rjmp	.+24     	; 0x36 <__bad_interrupt>
-  1e:	0b c0       	rjmp	.+22     	; 0x36 <__bad_interrupt>
-  20:	0a c0       	rjmp	.+20     	; 0x36 <__bad_interrupt>
-  22:	09 c0       	rjmp	.+18     	; 0x36 <__bad_interrupt>
-  24:	08 c0       	rjmp	.+16     	; 0x36 <__bad_interrupt>
+   2:	2c c0       	rjmp	.+88     	; 0x5c <__bad_interrupt>
+   4:	2b c0       	rjmp	.+86     	; 0x5c <__bad_interrupt>
+   6:	2a c0       	rjmp	.+84     	; 0x5c <__bad_interrupt>
+   8:	29 c0       	rjmp	.+82     	; 0x5c <__bad_interrupt>
+   a:	28 c0       	rjmp	.+80     	; 0x5c <__bad_interrupt>
+   c:	27 c0       	rjmp	.+78     	; 0x5c <__bad_interrupt>
+   e:	26 c0       	rjmp	.+76     	; 0x5c <__bad_interrupt>
+  10:	25 c0       	rjmp	.+74     	; 0x5c <__bad_interrupt>
+  12:	24 c0       	rjmp	.+72     	; 0x5c <__bad_interrupt>
+  14:	23 c0       	rjmp	.+70     	; 0x5c <__bad_interrupt>
+  16:	90 c2       	rjmp	.+1312   	; 0x538 <__vector_11>
+  18:	21 c0       	rjmp	.+66     	; 0x5c <__bad_interrupt>
+  1a:	3c c0       	rjmp	.+120    	; 0x94 <__vector_13>
+  1c:	1f c0       	rjmp	.+62     	; 0x5c <__bad_interrupt>
+  1e:	1e c0       	rjmp	.+60     	; 0x5c <__bad_interrupt>
+  20:	1d c0       	rjmp	.+58     	; 0x5c <__bad_interrupt>
+  22:	1c c0       	rjmp	.+56     	; 0x5c <__bad_interrupt>
+  24:	1b c0       	rjmp	.+54     	; 0x5c <__bad_interrupt>
 
 00000026 <__ctors_end>:
   26:	11 24       	eor	r1, r1
@@ -54,208 +58,1561 @@ Disassembly of section .text:
   2c:	d4 e0       	ldi	r29, 0x04	; 4
   2e:	de bf       	out	0x3e, r29	; 62
   30:	cd bf       	out	0x3d, r28	; 61
-  32:	02 d0       	rcall	.+4      	; 0x38 <main>
-  34:	30 c0       	rjmp	.+96     	; 0x96 <_exit>
 
-00000036 <__bad_interrupt>:
-  36:	e4 cf       	rjmp	.-56     	; 0x0 <__vectors>
+00000032 <__do_copy_data>:
+  32:	10 e0       	ldi	r17, 0x00	; 0
+  34:	a0 e6       	ldi	r26, 0x60	; 96
+  36:	b0 e0       	ldi	r27, 0x00	; 0
+  38:	e8 e2       	ldi	r30, 0x28	; 40
+  3a:	f6 e0       	ldi	r31, 0x06	; 6
+  3c:	02 c0       	rjmp	.+4      	; 0x42 <.do_copy_data_start>
 
-00000038 <main>:
+0000003e <.do_copy_data_loop>:
+  3e:	05 90       	lpm	r0, Z+
+  40:	0d 92       	st	X+, r0
+
+00000042 <.do_copy_data_start>:
+  42:	ae 38       	cpi	r26, 0x8E	; 142
+  44:	b1 07       	cpc	r27, r17
+  46:	d9 f7       	brne	.-10     	; 0x3e <.do_copy_data_loop>
+
+00000048 <__do_clear_bss>:
+  48:	10 e0       	ldi	r17, 0x00	; 0
+  4a:	ae e8       	ldi	r26, 0x8E	; 142
+  4c:	b0 e0       	ldi	r27, 0x00	; 0
+  4e:	01 c0       	rjmp	.+2      	; 0x52 <.do_clear_bss_start>
+
+00000050 <.do_clear_bss_loop>:
+  50:	1d 92       	st	X+, r1
+
+00000052 <.do_clear_bss_start>:
+  52:	a4 3f       	cpi	r26, 0xF4	; 244
+  54:	b1 07       	cpc	r27, r17
+  56:	e1 f7       	brne	.-8      	; 0x50 <.do_clear_bss_loop>
+  58:	06 d0       	rcall	.+12     	; 0x66 <main>
+  5a:	e4 c2       	rjmp	.+1480   	; 0x624 <_exit>
+
+0000005c <__bad_interrupt>:
+  5c:	d1 cf       	rjmp	.-94     	; 0x0 <__vectors>
+
+0000005e <initHardware>:
+ * @POST:	The hardware (Modules and Peripherals) is initialized and is
+ * 			ready for use.
+ */
+void initHardware(void){
+
+	USART_init();
+  5e:	bb d2       	rcall	.+1398   	; 0x5d6 <USART_init>
+	USART_EnableTx();
+  60:	c5 d2       	rcall	.+1418   	; 0x5ec <USART_EnableTx>
+	USART_EnableRx();
+  62:	c8 d2       	rcall	.+1424   	; 0x5f4 <USART_EnableRx>
+
+	
+
+
+}
+  64:	08 95       	ret
+
+00000066 <main>:
+
+//  ---------------------------------------------------------------------------
+//      MAIN PROGRAM / ROUTINE
+//  ---------------------------------------------------------------------------
+
+int main(void){
+  66:	80 ed       	ldi	r24, 0xD0	; 208
+  68:	97 e0       	ldi	r25, 0x07	; 7
     milliseconds can be achieved.
  */
 void
 _delay_loop_2(uint16_t __count)
 {
 	__asm__ volatile (
-  38:	80 e4       	ldi	r24, 0x40	; 64
-  3a:	9c e9       	ldi	r25, 0x9C	; 156
-  3c:	01 97       	sbiw	r24, 0x01	; 1
-  3e:	f1 f7       	brne	.-4      	; 0x3c <main+0x4>
-//  ---------------------------------------------------------------------------
-
-int main(void){
+  6a:	28 ec       	ldi	r18, 0xC8	; 200
+  6c:	30 e0       	ldi	r19, 0x00	; 0
+  6e:	f9 01       	movw	r30, r18
+  70:	31 97       	sbiw	r30, 0x01	; 1
+  72:	f1 f7       	brne	.-4      	; 0x70 <main+0xa>
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+  74:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+  76:	d9 f7       	brne	.-10     	; 0x6e <main+0x8>
 	
-	_delay_ms(20);
-}
-  40:	80 e0       	ldi	r24, 0x00	; 0
-  42:	90 e0       	ldi	r25, 0x00	; 0
-  44:	08 95       	ret
+	
+	_delay_ms(200);
+	initHardware();
+  78:	f2 df       	rcall	.-28     	; 0x5e <initHardware>
+	ZigBee_AT_Config();
+  7a:	16 d0       	rcall	.+44     	; 0xa8 <ZigBee_AT_Config>
+  7c:	80 ed       	ldi	r24, 0xD0	; 208
+  7e:	97 e0       	ldi	r25, 0x07	; 7
+  80:	28 ec       	ldi	r18, 0xC8	; 200
+  82:	30 e0       	ldi	r19, 0x00	; 0
+  84:	f9 01       	movw	r30, r18
+  86:	31 97       	sbiw	r30, 0x01	; 1
+  88:	f1 f7       	brne	.-4      	; 0x86 <main+0x20>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+  8a:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+  8c:	d9 f7       	brne	.-10     	; 0x84 <main+0x1e>
+  8e:	80 ed       	ldi	r24, 0xD0	; 208
+  90:	97 e0       	ldi	r25, 0x07	; 7
+  92:	f8 cf       	rjmp	.-16     	; 0x84 <main+0x1e>
 
-00000046 <initHardware>:
- * 			ready for use.
+00000094 <__vector_13>:
+	
+}
+
+
+ISR(USART_TXC_vect) 
+{
+  94:	1f 92       	push	r1
+  96:	0f 92       	push	r0
+  98:	0f b6       	in	r0, 0x3f	; 63
+  9a:	0f 92       	push	r0
+  9c:	11 24       	eor	r1, r1
+
+	//buffer[ptrBuffer++]=USART_Recibir();
+	//USART_Enviar(buffer[ptrBuffer-1]);
+	
+}
+  9e:	0f 90       	pop	r0
+  a0:	0f be       	out	0x3f, r0	; 63
+  a2:	0f 90       	pop	r0
+  a4:	1f 90       	pop	r1
+  a6:	18 95       	reti
+
+000000a8 <ZigBee_AT_Config>:
+}
+
+
+void ZigBee_AT_Config(){
+
+ptrBuffer=0x00;
+  a8:	10 92 8f 00 	sts	0x008F, r1
+  ac:	10 92 8e 00 	sts	0x008E, r1
+
+		USART_EnviarStr("OK");
+  b0:	82 e0       	ldi	r24, 0x02	; 2
+  b2:	90 e0       	ldi	r25, 0x00	; 0
+  b4:	60 e6       	ldi	r22, 0x60	; 96
+  b6:	70 e0       	ldi	r23, 0x00	; 0
+  b8:	a9 d2       	rcall	.+1362   	; 0x60c <USART_EnviarStrLen>
+		
+		sei();
+  ba:	78 94       	sei
+		while(1){
+
+			if(ptrBuffer>0x0A){
+  bc:	80 91 8e 00 	lds	r24, 0x008E
+  c0:	90 91 8f 00 	lds	r25, 0x008F
+  c4:	0b 97       	sbiw	r24, 0x0b	; 11
+  c6:	64 f0       	brlt	.+24     	; 0xe0 <ZigBee_AT_Config+0x38>
+				USART_EnviarLn("Ok lineas recibidas");
+  c8:	83 e1       	ldi	r24, 0x13	; 19
+  ca:	90 e0       	ldi	r25, 0x00	; 0
+  cc:	63 e6       	ldi	r22, 0x63	; 99
+  ce:	70 e0       	ldi	r23, 0x00	; 0
+  d0:	9d d2       	rcall	.+1338   	; 0x60c <USART_EnviarStrLen>
+  d2:	8d e0       	ldi	r24, 0x0D	; 13
+  d4:	93 d2       	rcall	.+1318   	; 0x5fc <USART_Enviar>
+				//USART_EnviarLn(buffer);
+				ptrBuffer=0x00;
+  d6:	10 92 8f 00 	sts	0x008F, r1
+  da:	10 92 8e 00 	sts	0x008E, r1
+  de:	ee cf       	rjmp	.-36     	; 0xbc <ZigBee_AT_Config+0x14>
+  e0:	ff cf       	rjmp	.-2      	; 0xe0 <ZigBee_AT_Config+0x38>
+
+000000e2 <ZigBee_AT_EnviarCh>:
+
+
+
+
+void ZigBee_AT_EnviarCh(uint8_t msg){
+	USART_Enviar(msg);
+  e2:	8c d2       	rcall	.+1304   	; 0x5fc <USART_Enviar>
+}
+  e4:	08 95       	ret
+
+000000e6 <pruebafalsar>:
+
+
+}
+
+
+void pruebafalsar(void){
+  e6:	cf 92       	push	r12
+  e8:	df 92       	push	r13
+  ea:	ef 92       	push	r14
+  ec:	ff 92       	push	r15
+  ee:	0f 93       	push	r16
+  f0:	1f 93       	push	r17
+  f2:	df 93       	push	r29
+  f4:	cf 93       	push	r28
+  f6:	cd b7       	in	r28, 0x3d	; 61
+  f8:	de b7       	in	r29, 0x3e	; 62
+  fa:	2f 97       	sbiw	r28, 0x0f	; 15
+  fc:	0f b6       	in	r0, 0x3f	; 63
+  fe:	f8 94       	cli
+ 100:	de bf       	out	0x3e, r29	; 62
+ 102:	0f be       	out	0x3f, r0	; 63
+ 104:	cd bf       	out	0x3d, r28	; 61
+
+	USART_EnviarLn("Start Config");
+ 106:	8c e0       	ldi	r24, 0x0C	; 12
+ 108:	90 e0       	ldi	r25, 0x00	; 0
+ 10a:	67 e7       	ldi	r22, 0x77	; 119
+ 10c:	70 e0       	ldi	r23, 0x00	; 0
+ 10e:	7e d2       	rcall	.+1276   	; 0x60c <USART_EnviarStrLen>
+ 110:	8d e0       	ldi	r24, 0x0D	; 13
+ 112:	74 d2       	rcall	.+1256   	; 0x5fc <USART_Enviar>
+ 114:	88 ee       	ldi	r24, 0xE8	; 232
+ 116:	93 e0       	ldi	r25, 0x03	; 3
+ 118:	28 ec       	ldi	r18, 0xC8	; 200
+ 11a:	30 e0       	ldi	r19, 0x00	; 0
+ 11c:	f9 01       	movw	r30, r18
+ 11e:	31 97       	sbiw	r30, 0x01	; 1
+ 120:	f1 f7       	brne	.-4      	; 0x11e <pruebafalsar+0x38>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 122:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 124:	d9 f7       	brne	.-10     	; 0x11c <pruebafalsar+0x36>
+ 126:	88 ee       	ldi	r24, 0xE8	; 232
+ 128:	93 e0       	ldi	r25, 0x03	; 3
+ 12a:	28 ec       	ldi	r18, 0xC8	; 200
+ 12c:	30 e0       	ldi	r19, 0x00	; 0
+ 12e:	f9 01       	movw	r30, r18
+ 130:	31 97       	sbiw	r30, 0x01	; 1
+ 132:	f1 f7       	brne	.-4      	; 0x130 <pruebafalsar+0x4a>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 134:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 136:	d9 f7       	brne	.-10     	; 0x12e <pruebafalsar+0x48>
+ 138:	88 ee       	ldi	r24, 0xE8	; 232
+ 13a:	93 e0       	ldi	r25, 0x03	; 3
+ 13c:	28 ec       	ldi	r18, 0xC8	; 200
+ 13e:	30 e0       	ldi	r19, 0x00	; 0
+ 140:	f9 01       	movw	r30, r18
+ 142:	31 97       	sbiw	r30, 0x01	; 1
+ 144:	f1 f7       	brne	.-4      	; 0x142 <pruebafalsar+0x5c>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 146:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 148:	d9 f7       	brne	.-10     	; 0x140 <pruebafalsar+0x5a>
+ 14a:	88 ee       	ldi	r24, 0xE8	; 232
+ 14c:	93 e0       	ldi	r25, 0x03	; 3
+ 14e:	28 ec       	ldi	r18, 0xC8	; 200
+ 150:	30 e0       	ldi	r19, 0x00	; 0
+ 152:	f9 01       	movw	r30, r18
+ 154:	31 97       	sbiw	r30, 0x01	; 1
+ 156:	f1 f7       	brne	.-4      	; 0x154 <pruebafalsar+0x6e>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 158:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 15a:	d9 f7       	brne	.-10     	; 0x152 <pruebafalsar+0x6c>
+ 15c:	88 ee       	ldi	r24, 0xE8	; 232
+ 15e:	93 e0       	ldi	r25, 0x03	; 3
+ 160:	28 ec       	ldi	r18, 0xC8	; 200
+ 162:	30 e0       	ldi	r19, 0x00	; 0
+ 164:	f9 01       	movw	r30, r18
+ 166:	31 97       	sbiw	r30, 0x01	; 1
+ 168:	f1 f7       	brne	.-4      	; 0x166 <pruebafalsar+0x80>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 16a:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 16c:	d9 f7       	brne	.-10     	; 0x164 <pruebafalsar+0x7e>
+ 16e:	88 ee       	ldi	r24, 0xE8	; 232
+ 170:	93 e0       	ldi	r25, 0x03	; 3
+ 172:	28 ec       	ldi	r18, 0xC8	; 200
+ 174:	30 e0       	ldi	r19, 0x00	; 0
+ 176:	f9 01       	movw	r30, r18
+ 178:	31 97       	sbiw	r30, 0x01	; 1
+ 17a:	f1 f7       	brne	.-4      	; 0x178 <pruebafalsar+0x92>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 17c:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 17e:	d9 f7       	brne	.-10     	; 0x176 <pruebafalsar+0x90>
+ 180:	88 ee       	ldi	r24, 0xE8	; 232
+ 182:	93 e0       	ldi	r25, 0x03	; 3
+ 184:	28 ec       	ldi	r18, 0xC8	; 200
+ 186:	30 e0       	ldi	r19, 0x00	; 0
+ 188:	f9 01       	movw	r30, r18
+ 18a:	31 97       	sbiw	r30, 0x01	; 1
+ 18c:	f1 f7       	brne	.-4      	; 0x18a <pruebafalsar+0xa4>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 18e:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 190:	d9 f7       	brne	.-10     	; 0x188 <pruebafalsar+0xa2>
+ 192:	88 ee       	ldi	r24, 0xE8	; 232
+ 194:	93 e0       	ldi	r25, 0x03	; 3
+ 196:	28 ec       	ldi	r18, 0xC8	; 200
+ 198:	30 e0       	ldi	r19, 0x00	; 0
+ 19a:	f9 01       	movw	r30, r18
+ 19c:	31 97       	sbiw	r30, 0x01	; 1
+ 19e:	f1 f7       	brne	.-4      	; 0x19c <pruebafalsar+0xb6>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 1a0:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 1a2:	d9 f7       	brne	.-10     	; 0x19a <pruebafalsar+0xb4>
+ 1a4:	88 ee       	ldi	r24, 0xE8	; 232
+ 1a6:	93 e0       	ldi	r25, 0x03	; 3
+ 1a8:	28 ec       	ldi	r18, 0xC8	; 200
+ 1aa:	30 e0       	ldi	r19, 0x00	; 0
+ 1ac:	f9 01       	movw	r30, r18
+ 1ae:	31 97       	sbiw	r30, 0x01	; 1
+ 1b0:	f1 f7       	brne	.-4      	; 0x1ae <pruebafalsar+0xc8>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 1b2:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 1b4:	d9 f7       	brne	.-10     	; 0x1ac <pruebafalsar+0xc6>
+ 1b6:	88 ee       	ldi	r24, 0xE8	; 232
+ 1b8:	93 e0       	ldi	r25, 0x03	; 3
+ 1ba:	28 ec       	ldi	r18, 0xC8	; 200
+ 1bc:	30 e0       	ldi	r19, 0x00	; 0
+ 1be:	f9 01       	movw	r30, r18
+ 1c0:	31 97       	sbiw	r30, 0x01	; 1
+ 1c2:	f1 f7       	brne	.-4      	; 0x1c0 <pruebafalsar+0xda>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 1c4:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 1c6:	d9 f7       	brne	.-10     	; 0x1be <pruebafalsar+0xd8>
+ 1c8:	88 ee       	ldi	r24, 0xE8	; 232
+ 1ca:	93 e0       	ldi	r25, 0x03	; 3
+ 1cc:	28 ec       	ldi	r18, 0xC8	; 200
+ 1ce:	30 e0       	ldi	r19, 0x00	; 0
+ 1d0:	f9 01       	movw	r30, r18
+ 1d2:	31 97       	sbiw	r30, 0x01	; 1
+ 1d4:	f1 f7       	brne	.-4      	; 0x1d2 <pruebafalsar+0xec>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 1d6:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 1d8:	d9 f7       	brne	.-10     	; 0x1d0 <pruebafalsar+0xea>
+ 1da:	88 ee       	ldi	r24, 0xE8	; 232
+ 1dc:	93 e0       	ldi	r25, 0x03	; 3
+ 1de:	28 ec       	ldi	r18, 0xC8	; 200
+ 1e0:	30 e0       	ldi	r19, 0x00	; 0
+ 1e2:	f9 01       	movw	r30, r18
+ 1e4:	31 97       	sbiw	r30, 0x01	; 1
+ 1e6:	f1 f7       	brne	.-4      	; 0x1e4 <pruebafalsar+0xfe>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 1e8:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 1ea:	d9 f7       	brne	.-10     	; 0x1e2 <pruebafalsar+0xfc>
+	_delay_ms(100);_delay_ms(100);_delay_ms(100);_delay_ms(100);_delay_ms(100);
+	_delay_ms(100);_delay_ms(100);_delay_ms(100);_delay_ms(100);_delay_ms(100);
+	_delay_ms(100);_delay_ms(100);
+
+	// Enviamos caracteres de configuracion
+	USART_EnviarStr("+++");
+ 1ec:	83 e0       	ldi	r24, 0x03	; 3
+ 1ee:	90 e0       	ldi	r25, 0x00	; 0
+ 1f0:	64 e8       	ldi	r22, 0x84	; 132
+ 1f2:	70 e0       	ldi	r23, 0x00	; 0
+ 1f4:	0b d2       	rcall	.+1046   	; 0x60c <USART_EnviarStrLen>
+ 1f6:	10 e0       	ldi	r17, 0x00	; 0
+
+	uint8_t recibioOK;
+	recibioOK = 0;
+	
+	do{
+		buf[i++] = USART_Recibir();
+ 1f8:	26 e0       	ldi	r18, 0x06	; 6
+ 1fa:	c2 2e       	mov	r12, r18
+ 1fc:	d1 2c       	mov	r13, r1
+ 1fe:	cc 0e       	add	r12, r28
+ 200:	dd 1e       	adc	r13, r29
+	}while(buf[i-1]!=0x0D);
+ 202:	95 e0       	ldi	r25, 0x05	; 5
+ 204:	e9 2e       	mov	r14, r25
+ 206:	f1 2c       	mov	r15, r1
+ 208:	ec 0e       	add	r14, r28
+ 20a:	fd 1e       	adc	r15, r29
+
+	uint8_t recibioOK;
+	recibioOK = 0;
+	
+	do{
+		buf[i++] = USART_Recibir();
+ 20c:	fb d1       	rcall	.+1014   	; 0x604 <USART_Recibir>
+ 20e:	f6 01       	movw	r30, r12
+ 210:	e1 0f       	add	r30, r17
+ 212:	f1 1d       	adc	r31, r1
+ 214:	80 83       	st	Z, r24
+ 216:	1f 5f       	subi	r17, 0xFF	; 255
+	}while(buf[i-1]!=0x0D);
+ 218:	f7 01       	movw	r30, r14
+ 21a:	e1 0f       	add	r30, r17
+ 21c:	f1 1d       	adc	r31, r1
+ 21e:	80 81       	ld	r24, Z
+ 220:	8d 30       	cpi	r24, 0x0D	; 13
+ 222:	a1 f7       	brne	.-24     	; 0x20c <pruebafalsar+0x126>
+
+	if( (buf[0]==0x4F) && (buf[1]==0x4B) ){
+ 224:	de 80       	ldd	r13, Y+6	; 0x06
+ 226:	8f e4       	ldi	r24, 0x4F	; 79
+ 228:	d8 16       	cp	r13, r24
+ 22a:	09 f5       	brne	.+66     	; 0x26e <pruebafalsar+0x188>
+ 22c:	8f 81       	ldd	r24, Y+7	; 0x07
+ 22e:	8b 34       	cpi	r24, 0x4B	; 75
+ 230:	f1 f4       	brne	.+60     	; 0x26e <pruebafalsar+0x188>
+ 232:	80 e4       	ldi	r24, 0x40	; 64
+ 234:	9c e9       	ldi	r25, 0x9C	; 156
+ 236:	01 97       	sbiw	r24, 0x01	; 1
+ 238:	f1 f7       	brne	.-4      	; 0x236 <pruebafalsar+0x150>
+
+		i = 0;
+		_delay_ms(20);
+		USART_EnviarLn("atvr");
+ 23a:	84 e0       	ldi	r24, 0x04	; 4
+ 23c:	90 e0       	ldi	r25, 0x00	; 0
+ 23e:	68 e8       	ldi	r22, 0x88	; 136
+ 240:	70 e0       	ldi	r23, 0x00	; 0
+ 242:	e4 d1       	rcall	.+968    	; 0x60c <USART_EnviarStrLen>
+ 244:	8d e0       	ldi	r24, 0x0D	; 13
+ 246:	da d1       	rcall	.+948    	; 0x5fc <USART_Enviar>
+ 248:	8e 01       	movw	r16, r28
+ 24a:	0f 5f       	subi	r16, 0xFF	; 255
+ 24c:	1f 4f       	sbci	r17, 0xFF	; 255
+		while(i<4){
+ 24e:	85 e0       	ldi	r24, 0x05	; 5
+ 250:	e8 2e       	mov	r14, r24
+ 252:	f1 2c       	mov	r15, r1
+ 254:	ec 0e       	add	r14, r28
+ 256:	fd 1e       	adc	r15, r29
+			version[i++] = USART_Recibir();
+ 258:	d5 d1       	rcall	.+938    	; 0x604 <USART_Recibir>
+ 25a:	f8 01       	movw	r30, r16
+ 25c:	81 93       	st	Z+, r24
+ 25e:	8f 01       	movw	r16, r30
+	if( (buf[0]==0x4F) && (buf[1]==0x4B) ){
+
+		i = 0;
+		_delay_ms(20);
+		USART_EnviarLn("atvr");
+		while(i<4){
+ 260:	ee 15       	cp	r30, r14
+ 262:	ff 05       	cpc	r31, r15
+ 264:	c9 f7       	brne	.-14     	; 0x258 <pruebafalsar+0x172>
+ 266:	80 e4       	ldi	r24, 0x40	; 64
+ 268:	9c e9       	ldi	r25, 0x9C	; 156
+ 26a:	01 97       	sbiw	r24, 0x01	; 1
+ 26c:	f1 f7       	brne	.-4      	; 0x26a <pruebafalsar+0x184>
+ 26e:	88 e8       	ldi	r24, 0x88	; 136
+ 270:	93 e1       	ldi	r25, 0x13	; 19
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 272:	28 ec       	ldi	r18, 0xC8	; 200
+ 274:	30 e0       	ldi	r19, 0x00	; 0
+ 276:	f9 01       	movw	r30, r18
+ 278:	31 97       	sbiw	r30, 0x01	; 1
+ 27a:	f1 f7       	brne	.-4      	; 0x278 <pruebafalsar+0x192>
+ 27c:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 27e:	d9 f7       	brne	.-10     	; 0x276 <pruebafalsar+0x190>
+ 280:	88 e8       	ldi	r24, 0x88	; 136
+ 282:	93 e1       	ldi	r25, 0x13	; 19
+ 284:	28 ec       	ldi	r18, 0xC8	; 200
+ 286:	30 e0       	ldi	r19, 0x00	; 0
+ 288:	f9 01       	movw	r30, r18
+ 28a:	31 97       	sbiw	r30, 0x01	; 1
+ 28c:	f1 f7       	brne	.-4      	; 0x28a <pruebafalsar+0x1a4>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 28e:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 290:	d9 f7       	brne	.-10     	; 0x288 <pruebafalsar+0x1a2>
+ 292:	88 e8       	ldi	r24, 0x88	; 136
+ 294:	93 e1       	ldi	r25, 0x13	; 19
+ 296:	28 ec       	ldi	r18, 0xC8	; 200
+ 298:	30 e0       	ldi	r19, 0x00	; 0
+ 29a:	f9 01       	movw	r30, r18
+ 29c:	31 97       	sbiw	r30, 0x01	; 1
+ 29e:	f1 f7       	brne	.-4      	; 0x29c <pruebafalsar+0x1b6>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 2a0:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 2a2:	d9 f7       	brne	.-10     	; 0x29a <pruebafalsar+0x1b4>
+ 2a4:	88 e8       	ldi	r24, 0x88	; 136
+ 2a6:	93 e1       	ldi	r25, 0x13	; 19
+ 2a8:	28 ec       	ldi	r18, 0xC8	; 200
+ 2aa:	30 e0       	ldi	r19, 0x00	; 0
+ 2ac:	f9 01       	movw	r30, r18
+ 2ae:	31 97       	sbiw	r30, 0x01	; 1
+ 2b0:	f1 f7       	brne	.-4      	; 0x2ae <pruebafalsar+0x1c8>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 2b2:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 2b4:	d9 f7       	brne	.-10     	; 0x2ac <pruebafalsar+0x1c6>
+ 2b6:	88 e8       	ldi	r24, 0x88	; 136
+ 2b8:	93 e1       	ldi	r25, 0x13	; 19
+ 2ba:	28 ec       	ldi	r18, 0xC8	; 200
+ 2bc:	30 e0       	ldi	r19, 0x00	; 0
+ 2be:	f9 01       	movw	r30, r18
+ 2c0:	31 97       	sbiw	r30, 0x01	; 1
+ 2c2:	f1 f7       	brne	.-4      	; 0x2c0 <pruebafalsar+0x1da>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 2c4:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 2c6:	d9 f7       	brne	.-10     	; 0x2be <pruebafalsar+0x1d8>
+ 2c8:	88 e8       	ldi	r24, 0x88	; 136
+ 2ca:	93 e1       	ldi	r25, 0x13	; 19
+ 2cc:	28 ec       	ldi	r18, 0xC8	; 200
+ 2ce:	30 e0       	ldi	r19, 0x00	; 0
+ 2d0:	f9 01       	movw	r30, r18
+ 2d2:	31 97       	sbiw	r30, 0x01	; 1
+ 2d4:	f1 f7       	brne	.-4      	; 0x2d2 <pruebafalsar+0x1ec>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 2d6:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 2d8:	d9 f7       	brne	.-10     	; 0x2d0 <pruebafalsar+0x1ea>
+ 2da:	88 e8       	ldi	r24, 0x88	; 136
+ 2dc:	93 e1       	ldi	r25, 0x13	; 19
+ 2de:	28 ec       	ldi	r18, 0xC8	; 200
+ 2e0:	30 e0       	ldi	r19, 0x00	; 0
+ 2e2:	f9 01       	movw	r30, r18
+ 2e4:	31 97       	sbiw	r30, 0x01	; 1
+ 2e6:	f1 f7       	brne	.-4      	; 0x2e4 <pruebafalsar+0x1fe>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 2e8:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 2ea:	d9 f7       	brne	.-10     	; 0x2e2 <pruebafalsar+0x1fc>
+ 2ec:	88 e8       	ldi	r24, 0x88	; 136
+ 2ee:	93 e1       	ldi	r25, 0x13	; 19
+ 2f0:	28 ec       	ldi	r18, 0xC8	; 200
+ 2f2:	30 e0       	ldi	r19, 0x00	; 0
+ 2f4:	f9 01       	movw	r30, r18
+ 2f6:	31 97       	sbiw	r30, 0x01	; 1
+ 2f8:	f1 f7       	brne	.-4      	; 0x2f6 <pruebafalsar+0x210>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 2fa:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 2fc:	d9 f7       	brne	.-10     	; 0x2f4 <pruebafalsar+0x20e>
+ 2fe:	88 e8       	ldi	r24, 0x88	; 136
+ 300:	93 e1       	ldi	r25, 0x13	; 19
+ 302:	28 ec       	ldi	r18, 0xC8	; 200
+ 304:	30 e0       	ldi	r19, 0x00	; 0
+ 306:	f9 01       	movw	r30, r18
+ 308:	31 97       	sbiw	r30, 0x01	; 1
+ 30a:	f1 f7       	brne	.-4      	; 0x308 <pruebafalsar+0x222>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 30c:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 30e:	d9 f7       	brne	.-10     	; 0x306 <pruebafalsar+0x220>
+ 310:	88 e8       	ldi	r24, 0x88	; 136
+ 312:	93 e1       	ldi	r25, 0x13	; 19
+ 314:	28 ec       	ldi	r18, 0xC8	; 200
+ 316:	30 e0       	ldi	r19, 0x00	; 0
+ 318:	f9 01       	movw	r30, r18
+ 31a:	31 97       	sbiw	r30, 0x01	; 1
+ 31c:	f1 f7       	brne	.-4      	; 0x31a <pruebafalsar+0x234>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 31e:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 320:	d9 f7       	brne	.-10     	; 0x318 <pruebafalsar+0x232>
+ 322:	88 e8       	ldi	r24, 0x88	; 136
+ 324:	93 e1       	ldi	r25, 0x13	; 19
+ 326:	28 ec       	ldi	r18, 0xC8	; 200
+ 328:	30 e0       	ldi	r19, 0x00	; 0
+ 32a:	f9 01       	movw	r30, r18
+ 32c:	31 97       	sbiw	r30, 0x01	; 1
+ 32e:	f1 f7       	brne	.-4      	; 0x32c <pruebafalsar+0x246>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 330:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 332:	d9 f7       	brne	.-10     	; 0x32a <pruebafalsar+0x244>
+ 334:	88 e8       	ldi	r24, 0x88	; 136
+ 336:	93 e1       	ldi	r25, 0x13	; 19
+ 338:	28 ec       	ldi	r18, 0xC8	; 200
+ 33a:	30 e0       	ldi	r19, 0x00	; 0
+ 33c:	f9 01       	movw	r30, r18
+ 33e:	31 97       	sbiw	r30, 0x01	; 1
+ 340:	f1 f7       	brne	.-4      	; 0x33e <pruebafalsar+0x258>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 342:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 344:	d9 f7       	brne	.-10     	; 0x33c <pruebafalsar+0x256>
+ 346:	88 e8       	ldi	r24, 0x88	; 136
+ 348:	93 e1       	ldi	r25, 0x13	; 19
+ 34a:	28 ec       	ldi	r18, 0xC8	; 200
+ 34c:	30 e0       	ldi	r19, 0x00	; 0
+ 34e:	f9 01       	movw	r30, r18
+ 350:	31 97       	sbiw	r30, 0x01	; 1
+ 352:	f1 f7       	brne	.-4      	; 0x350 <pruebafalsar+0x26a>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 354:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 356:	d9 f7       	brne	.-10     	; 0x34e <pruebafalsar+0x268>
+ 358:	88 e8       	ldi	r24, 0x88	; 136
+ 35a:	93 e1       	ldi	r25, 0x13	; 19
+ 35c:	28 ec       	ldi	r18, 0xC8	; 200
+ 35e:	30 e0       	ldi	r19, 0x00	; 0
+ 360:	f9 01       	movw	r30, r18
+ 362:	31 97       	sbiw	r30, 0x01	; 1
+ 364:	f1 f7       	brne	.-4      	; 0x362 <pruebafalsar+0x27c>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 366:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 368:	d9 f7       	brne	.-10     	; 0x360 <pruebafalsar+0x27a>
+ 36a:	88 e8       	ldi	r24, 0x88	; 136
+ 36c:	93 e1       	ldi	r25, 0x13	; 19
+ 36e:	28 ec       	ldi	r18, 0xC8	; 200
+ 370:	30 e0       	ldi	r19, 0x00	; 0
+ 372:	f9 01       	movw	r30, r18
+ 374:	31 97       	sbiw	r30, 0x01	; 1
+ 376:	f1 f7       	brne	.-4      	; 0x374 <pruebafalsar+0x28e>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 378:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 37a:	d9 f7       	brne	.-10     	; 0x372 <pruebafalsar+0x28c>
+ 37c:	88 e8       	ldi	r24, 0x88	; 136
+ 37e:	93 e1       	ldi	r25, 0x13	; 19
+ 380:	28 ec       	ldi	r18, 0xC8	; 200
+ 382:	30 e0       	ldi	r19, 0x00	; 0
+ 384:	f9 01       	movw	r30, r18
+ 386:	31 97       	sbiw	r30, 0x01	; 1
+ 388:	f1 f7       	brne	.-4      	; 0x386 <pruebafalsar+0x2a0>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 38a:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 38c:	d9 f7       	brne	.-10     	; 0x384 <pruebafalsar+0x29e>
+ 38e:	88 e8       	ldi	r24, 0x88	; 136
+ 390:	93 e1       	ldi	r25, 0x13	; 19
+ 392:	28 ec       	ldi	r18, 0xC8	; 200
+ 394:	30 e0       	ldi	r19, 0x00	; 0
+ 396:	f9 01       	movw	r30, r18
+ 398:	31 97       	sbiw	r30, 0x01	; 1
+ 39a:	f1 f7       	brne	.-4      	; 0x398 <pruebafalsar+0x2b2>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 39c:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 39e:	d9 f7       	brne	.-10     	; 0x396 <pruebafalsar+0x2b0>
+ 3a0:	88 e8       	ldi	r24, 0x88	; 136
+ 3a2:	93 e1       	ldi	r25, 0x13	; 19
+ 3a4:	28 ec       	ldi	r18, 0xC8	; 200
+ 3a6:	30 e0       	ldi	r19, 0x00	; 0
+ 3a8:	f9 01       	movw	r30, r18
+ 3aa:	31 97       	sbiw	r30, 0x01	; 1
+ 3ac:	f1 f7       	brne	.-4      	; 0x3aa <pruebafalsar+0x2c4>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 3ae:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 3b0:	d9 f7       	brne	.-10     	; 0x3a8 <pruebafalsar+0x2c2>
+ 3b2:	88 e8       	ldi	r24, 0x88	; 136
+ 3b4:	93 e1       	ldi	r25, 0x13	; 19
+ 3b6:	28 ec       	ldi	r18, 0xC8	; 200
+ 3b8:	30 e0       	ldi	r19, 0x00	; 0
+ 3ba:	f9 01       	movw	r30, r18
+ 3bc:	31 97       	sbiw	r30, 0x01	; 1
+ 3be:	f1 f7       	brne	.-4      	; 0x3bc <pruebafalsar+0x2d6>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 3c0:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 3c2:	d9 f7       	brne	.-10     	; 0x3ba <pruebafalsar+0x2d4>
+ 3c4:	88 e8       	ldi	r24, 0x88	; 136
+ 3c6:	93 e1       	ldi	r25, 0x13	; 19
+ 3c8:	28 ec       	ldi	r18, 0xC8	; 200
+ 3ca:	30 e0       	ldi	r19, 0x00	; 0
+ 3cc:	f9 01       	movw	r30, r18
+ 3ce:	31 97       	sbiw	r30, 0x01	; 1
+ 3d0:	f1 f7       	brne	.-4      	; 0x3ce <pruebafalsar+0x2e8>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 3d2:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 3d4:	d9 f7       	brne	.-10     	; 0x3cc <pruebafalsar+0x2e6>
+ 3d6:	88 e8       	ldi	r24, 0x88	; 136
+ 3d8:	93 e1       	ldi	r25, 0x13	; 19
+ 3da:	28 ec       	ldi	r18, 0xC8	; 200
+ 3dc:	30 e0       	ldi	r19, 0x00	; 0
+ 3de:	f9 01       	movw	r30, r18
+ 3e0:	31 97       	sbiw	r30, 0x01	; 1
+ 3e2:	f1 f7       	brne	.-4      	; 0x3e0 <pruebafalsar+0x2fa>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 3e4:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 3e6:	d9 f7       	brne	.-10     	; 0x3de <pruebafalsar+0x2f8>
+ 3e8:	88 e8       	ldi	r24, 0x88	; 136
+ 3ea:	93 e1       	ldi	r25, 0x13	; 19
+ 3ec:	28 ec       	ldi	r18, 0xC8	; 200
+ 3ee:	30 e0       	ldi	r19, 0x00	; 0
+ 3f0:	f9 01       	movw	r30, r18
+ 3f2:	31 97       	sbiw	r30, 0x01	; 1
+ 3f4:	f1 f7       	brne	.-4      	; 0x3f2 <pruebafalsar+0x30c>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 3f6:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 3f8:	d9 f7       	brne	.-10     	; 0x3f0 <pruebafalsar+0x30a>
+ 3fa:	88 e8       	ldi	r24, 0x88	; 136
+ 3fc:	93 e1       	ldi	r25, 0x13	; 19
+ 3fe:	28 ec       	ldi	r18, 0xC8	; 200
+ 400:	30 e0       	ldi	r19, 0x00	; 0
+ 402:	f9 01       	movw	r30, r18
+ 404:	31 97       	sbiw	r30, 0x01	; 1
+ 406:	f1 f7       	brne	.-4      	; 0x404 <pruebafalsar+0x31e>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 408:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 40a:	d9 f7       	brne	.-10     	; 0x402 <pruebafalsar+0x31c>
+ 40c:	88 e8       	ldi	r24, 0x88	; 136
+ 40e:	93 e1       	ldi	r25, 0x13	; 19
+ 410:	28 ec       	ldi	r18, 0xC8	; 200
+ 412:	30 e0       	ldi	r19, 0x00	; 0
+ 414:	f9 01       	movw	r30, r18
+ 416:	31 97       	sbiw	r30, 0x01	; 1
+ 418:	f1 f7       	brne	.-4      	; 0x416 <pruebafalsar+0x330>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 41a:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 41c:	d9 f7       	brne	.-10     	; 0x414 <pruebafalsar+0x32e>
+ 41e:	88 e8       	ldi	r24, 0x88	; 136
+ 420:	93 e1       	ldi	r25, 0x13	; 19
+ 422:	28 ec       	ldi	r18, 0xC8	; 200
+ 424:	30 e0       	ldi	r19, 0x00	; 0
+ 426:	f9 01       	movw	r30, r18
+ 428:	31 97       	sbiw	r30, 0x01	; 1
+ 42a:	f1 f7       	brne	.-4      	; 0x428 <pruebafalsar+0x342>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 42c:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 42e:	d9 f7       	brne	.-10     	; 0x426 <pruebafalsar+0x340>
+ 430:	88 e8       	ldi	r24, 0x88	; 136
+ 432:	93 e1       	ldi	r25, 0x13	; 19
+ 434:	28 ec       	ldi	r18, 0xC8	; 200
+ 436:	30 e0       	ldi	r19, 0x00	; 0
+ 438:	f9 01       	movw	r30, r18
+ 43a:	31 97       	sbiw	r30, 0x01	; 1
+ 43c:	f1 f7       	brne	.-4      	; 0x43a <pruebafalsar+0x354>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 43e:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 440:	d9 f7       	brne	.-10     	; 0x438 <pruebafalsar+0x352>
+ 442:	88 e8       	ldi	r24, 0x88	; 136
+ 444:	93 e1       	ldi	r25, 0x13	; 19
+ 446:	28 ec       	ldi	r18, 0xC8	; 200
+ 448:	30 e0       	ldi	r19, 0x00	; 0
+ 44a:	f9 01       	movw	r30, r18
+ 44c:	31 97       	sbiw	r30, 0x01	; 1
+ 44e:	f1 f7       	brne	.-4      	; 0x44c <pruebafalsar+0x366>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 450:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 452:	d9 f7       	brne	.-10     	; 0x44a <pruebafalsar+0x364>
+ 454:	88 e8       	ldi	r24, 0x88	; 136
+ 456:	93 e1       	ldi	r25, 0x13	; 19
+ 458:	28 ec       	ldi	r18, 0xC8	; 200
+ 45a:	30 e0       	ldi	r19, 0x00	; 0
+ 45c:	f9 01       	movw	r30, r18
+ 45e:	31 97       	sbiw	r30, 0x01	; 1
+ 460:	f1 f7       	brne	.-4      	; 0x45e <pruebafalsar+0x378>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 462:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 464:	d9 f7       	brne	.-10     	; 0x45c <pruebafalsar+0x376>
+ 466:	88 e8       	ldi	r24, 0x88	; 136
+ 468:	93 e1       	ldi	r25, 0x13	; 19
+ 46a:	28 ec       	ldi	r18, 0xC8	; 200
+ 46c:	30 e0       	ldi	r19, 0x00	; 0
+ 46e:	f9 01       	movw	r30, r18
+ 470:	31 97       	sbiw	r30, 0x01	; 1
+ 472:	f1 f7       	brne	.-4      	; 0x470 <__stack+0x11>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 474:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 476:	d9 f7       	brne	.-10     	; 0x46e <__stack+0xf>
+ 478:	88 e8       	ldi	r24, 0x88	; 136
+ 47a:	93 e1       	ldi	r25, 0x13	; 19
+ 47c:	28 ec       	ldi	r18, 0xC8	; 200
+ 47e:	30 e0       	ldi	r19, 0x00	; 0
+ 480:	f9 01       	movw	r30, r18
+ 482:	31 97       	sbiw	r30, 0x01	; 1
+ 484:	f1 f7       	brne	.-4      	; 0x482 <__stack+0x23>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 486:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 488:	d9 f7       	brne	.-10     	; 0x480 <__stack+0x21>
+ 48a:	88 e8       	ldi	r24, 0x88	; 136
+ 48c:	93 e1       	ldi	r25, 0x13	; 19
+ 48e:	28 ec       	ldi	r18, 0xC8	; 200
+ 490:	30 e0       	ldi	r19, 0x00	; 0
+ 492:	f9 01       	movw	r30, r18
+ 494:	31 97       	sbiw	r30, 0x01	; 1
+ 496:	f1 f7       	brne	.-4      	; 0x494 <__stack+0x35>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 498:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 49a:	d9 f7       	brne	.-10     	; 0x492 <__stack+0x33>
+ 49c:	88 e8       	ldi	r24, 0x88	; 136
+ 49e:	93 e1       	ldi	r25, 0x13	; 19
+ 4a0:	28 ec       	ldi	r18, 0xC8	; 200
+ 4a2:	30 e0       	ldi	r19, 0x00	; 0
+ 4a4:	f9 01       	movw	r30, r18
+ 4a6:	31 97       	sbiw	r30, 0x01	; 1
+ 4a8:	f1 f7       	brne	.-4      	; 0x4a6 <__stack+0x47>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 4aa:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 4ac:	d9 f7       	brne	.-10     	; 0x4a4 <__stack+0x45>
+ 4ae:	88 e8       	ldi	r24, 0x88	; 136
+ 4b0:	93 e1       	ldi	r25, 0x13	; 19
+ 4b2:	28 ec       	ldi	r18, 0xC8	; 200
+ 4b4:	30 e0       	ldi	r19, 0x00	; 0
+ 4b6:	f9 01       	movw	r30, r18
+ 4b8:	31 97       	sbiw	r30, 0x01	; 1
+ 4ba:	f1 f7       	brne	.-4      	; 0x4b8 <__stack+0x59>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 4bc:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 4be:	d9 f7       	brne	.-10     	; 0x4b6 <__stack+0x57>
+ 4c0:	88 e8       	ldi	r24, 0x88	; 136
+ 4c2:	93 e1       	ldi	r25, 0x13	; 19
+ 4c4:	28 ec       	ldi	r18, 0xC8	; 200
+ 4c6:	30 e0       	ldi	r19, 0x00	; 0
+ 4c8:	f9 01       	movw	r30, r18
+ 4ca:	31 97       	sbiw	r30, 0x01	; 1
+ 4cc:	f1 f7       	brne	.-4      	; 0x4ca <__stack+0x6b>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 4ce:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 4d0:	d9 f7       	brne	.-10     	; 0x4c8 <__stack+0x69>
+ 4d2:	88 e8       	ldi	r24, 0x88	; 136
+ 4d4:	93 e1       	ldi	r25, 0x13	; 19
+ 4d6:	28 ec       	ldi	r18, 0xC8	; 200
+ 4d8:	30 e0       	ldi	r19, 0x00	; 0
+ 4da:	f9 01       	movw	r30, r18
+ 4dc:	31 97       	sbiw	r30, 0x01	; 1
+ 4de:	f1 f7       	brne	.-4      	; 0x4dc <__stack+0x7d>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 4e0:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 4e2:	d9 f7       	brne	.-10     	; 0x4da <__stack+0x7b>
+ 4e4:	88 e8       	ldi	r24, 0x88	; 136
+ 4e6:	93 e1       	ldi	r25, 0x13	; 19
+ 4e8:	28 ec       	ldi	r18, 0xC8	; 200
+ 4ea:	30 e0       	ldi	r19, 0x00	; 0
+ 4ec:	f9 01       	movw	r30, r18
+ 4ee:	31 97       	sbiw	r30, 0x01	; 1
+ 4f0:	f1 f7       	brne	.-4      	; 0x4ee <__stack+0x8f>
+		{
+			// wait 1/10 ms
+			_delay_loop_2(((F_CPU) / 4e3) / 10);
+			__ticks --;
+ 4f2:	01 97       	sbiw	r24, 0x01	; 1
+		__ticks = 1;
+	else if (__tmp > 65535)
+	{
+		//	__ticks = requested delay in 1/10 ms
+		__ticks = (uint16_t) (__ms * 10.0);
+		while(__ticks)
+ 4f4:	d9 f7       	brne	.-10     	; 0x4ec <__stack+0x8d>
+
+	_delay_ms(500);_delay_ms(500);_delay_ms(500);_delay_ms(500);_delay_ms(500);_delay_ms(500);_delay_ms(500);_delay_ms(500);_delay_ms(500);_delay_ms(500);
+	_delay_ms(500);_delay_ms(500);_delay_ms(500);_delay_ms(500);_delay_ms(500);_delay_ms(500);_delay_ms(500);_delay_ms(500);_delay_ms(500);_delay_ms(500);
+	_delay_ms(500);_delay_ms(500);_delay_ms(500);_delay_ms(500);_delay_ms(500);_delay_ms(500);_delay_ms(500);_delay_ms(500);_delay_ms(500);_delay_ms(500);
+	_delay_ms(500);_delay_ms(500);_delay_ms(500);_delay_ms(500);_delay_ms(500);_delay_ms(500);
+	USART_Enviar(recibioOK+0x30);USART_Enviar(0x0D);
+ 4f6:	80 e3       	ldi	r24, 0x30	; 48
+ 4f8:	81 d0       	rcall	.+258    	; 0x5fc <USART_Enviar>
+ 4fa:	8d e0       	ldi	r24, 0x0D	; 13
+ 4fc:	7f d0       	rcall	.+254    	; 0x5fc <USART_Enviar>
+	USART_Enviar(buf[0]);
+ 4fe:	8d 2d       	mov	r24, r13
+ 500:	7d d0       	rcall	.+250    	; 0x5fc <USART_Enviar>
+	USART_Enviar(buf[1]);
+ 502:	8f 81       	ldd	r24, Y+7	; 0x07
+ 504:	7b d0       	rcall	.+246    	; 0x5fc <USART_Enviar>
+	USART_Enviar(buf[2]);
+ 506:	88 85       	ldd	r24, Y+8	; 0x08
+ 508:	79 d0       	rcall	.+242    	; 0x5fc <USART_Enviar>
+	USART_Enviar(version[0]);
+ 50a:	89 81       	ldd	r24, Y+1	; 0x01
+ 50c:	77 d0       	rcall	.+238    	; 0x5fc <USART_Enviar>
+	USART_Enviar(version[1]);
+ 50e:	8a 81       	ldd	r24, Y+2	; 0x02
+ 510:	75 d0       	rcall	.+234    	; 0x5fc <USART_Enviar>
+	USART_Enviar(version[2]);
+ 512:	8b 81       	ldd	r24, Y+3	; 0x03
+ 514:	73 d0       	rcall	.+230    	; 0x5fc <USART_Enviar>
+	USART_Enviar(version[3]);
+ 516:	8c 81       	ldd	r24, Y+4	; 0x04
+ 518:	71 d0       	rcall	.+226    	; 0x5fc <USART_Enviar>
+
+}
+ 51a:	2f 96       	adiw	r28, 0x0f	; 15
+ 51c:	0f b6       	in	r0, 0x3f	; 63
+ 51e:	f8 94       	cli
+ 520:	de bf       	out	0x3e, r29	; 62
+ 522:	0f be       	out	0x3f, r0	; 63
+ 524:	cd bf       	out	0x3d, r28	; 61
+ 526:	cf 91       	pop	r28
+ 528:	df 91       	pop	r29
+ 52a:	1f 91       	pop	r17
+ 52c:	0f 91       	pop	r16
+ 52e:	ff 90       	pop	r15
+ 530:	ef 90       	pop	r14
+ 532:	df 90       	pop	r13
+ 534:	cf 90       	pop	r12
+ 536:	08 95       	ret
+
+00000538 <__vector_11>:
+/**
+ * Rutina de atencion de interrupcion generada cuando la USART0 recibe un dato
  */
-void initHardware(void){
+
+ISR(USART_RXC_vect) 
+{
+ 538:	1f 92       	push	r1
+ 53a:	0f 92       	push	r0
+ 53c:	0f b6       	in	r0, 0x3f	; 63
+ 53e:	0f 92       	push	r0
+ 540:	11 24       	eor	r1, r1
+ 542:	0f 93       	push	r16
+ 544:	1f 93       	push	r17
+ 546:	2f 93       	push	r18
+ 548:	3f 93       	push	r19
+ 54a:	4f 93       	push	r20
+ 54c:	5f 93       	push	r21
+ 54e:	6f 93       	push	r22
+ 550:	7f 93       	push	r23
+ 552:	8f 93       	push	r24
+ 554:	9f 93       	push	r25
+ 556:	af 93       	push	r26
+ 558:	bf 93       	push	r27
+ 55a:	ef 93       	push	r30
+ 55c:	ff 93       	push	r31
+
+	buffer[ptrBuffer++]=USART_Recibir();
+ 55e:	00 91 8e 00 	lds	r16, 0x008E
+ 562:	10 91 8f 00 	lds	r17, 0x008F
+ 566:	4e d0       	rcall	.+156    	; 0x604 <USART_Recibir>
+ 568:	f8 01       	movw	r30, r16
+ 56a:	e0 57       	subi	r30, 0x70	; 112
+ 56c:	ff 4f       	sbci	r31, 0xFF	; 255
+ 56e:	80 83       	st	Z, r24
+ 570:	0f 5f       	subi	r16, 0xFF	; 255
+ 572:	1f 4f       	sbci	r17, 0xFF	; 255
+ 574:	10 93 8f 00 	sts	0x008F, r17
+ 578:	00 93 8e 00 	sts	0x008E, r16
+	//USART_Enviar(buffer[ptrBuffer-1]);
+	//USART_Enviar(ptrBuffer);
 
 
+		if(buffer[ptrBuffer-1]==0x0D){
+ 57c:	01 57       	subi	r16, 0x71	; 113
+ 57e:	1f 4f       	sbci	r17, 0xFF	; 255
+ 580:	f8 01       	movw	r30, r16
+ 582:	80 81       	ld	r24, Z
+ 584:	8d 30       	cpi	r24, 0x0D	; 13
+ 586:	a1 f4       	brne	.+40     	; 0x5b0 <__vector_11+0x78>
+ 588:	00 e0       	ldi	r16, 0x00	; 0
+ 58a:	05 c0       	rjmp	.+10     	; 0x596 <__vector_11+0x5e>
+				
+				for(uint8_t i=0; i<ptrBuffer; i++){
+				 	USART_Enviar(buffer[i]);
+ 58c:	e0 57       	subi	r30, 0x70	; 112
+ 58e:	ff 4f       	sbci	r31, 0xFF	; 255
+ 590:	80 81       	ld	r24, Z
+ 592:	34 d0       	rcall	.+104    	; 0x5fc <USART_Enviar>
+	//USART_Enviar(ptrBuffer);
+
+
+		if(buffer[ptrBuffer-1]==0x0D){
+				
+				for(uint8_t i=0; i<ptrBuffer; i++){
+ 594:	0f 5f       	subi	r16, 0xFF	; 255
+ 596:	e0 2f       	mov	r30, r16
+ 598:	f0 e0       	ldi	r31, 0x00	; 0
+ 59a:	80 91 8e 00 	lds	r24, 0x008E
+ 59e:	90 91 8f 00 	lds	r25, 0x008F
+ 5a2:	e8 17       	cp	r30, r24
+ 5a4:	f9 07       	cpc	r31, r25
+ 5a6:	94 f3       	brlt	.-28     	; 0x58c <__vector_11+0x54>
+				 	USART_Enviar(buffer[i]);
+				}
+				ptrBuffer=0x00;
+ 5a8:	10 92 8f 00 	sts	0x008F, r1
+ 5ac:	10 92 8e 00 	sts	0x008E, r1
+		}
+
+	
 }
-  46:	08 95       	ret
+ 5b0:	ff 91       	pop	r31
+ 5b2:	ef 91       	pop	r30
+ 5b4:	bf 91       	pop	r27
+ 5b6:	af 91       	pop	r26
+ 5b8:	9f 91       	pop	r25
+ 5ba:	8f 91       	pop	r24
+ 5bc:	7f 91       	pop	r23
+ 5be:	6f 91       	pop	r22
+ 5c0:	5f 91       	pop	r21
+ 5c2:	4f 91       	pop	r20
+ 5c4:	3f 91       	pop	r19
+ 5c6:	2f 91       	pop	r18
+ 5c8:	1f 91       	pop	r17
+ 5ca:	0f 91       	pop	r16
+ 5cc:	0f 90       	pop	r0
+ 5ce:	0f be       	out	0x3f, r0	; 63
+ 5d0:	0f 90       	pop	r0
+ 5d2:	1f 90       	pop	r1
+ 5d4:	18 95       	reti
 
-00000048 <USART_init>:
+000005d6 <USART_init>:
  * @RETURN: Void
  */
 void USART_init(){
 
 	// Nos aseguramos que la USART se encuentre inactiva y configuracion default
 	UCSRA = 0x20;
-  48:	80 e2       	ldi	r24, 0x20	; 32
-  4a:	8b b9       	out	0x0b, r24	; 11
+ 5d6:	80 e2       	ldi	r24, 0x20	; 32
+ 5d8:	8b b9       	out	0x0b, r24	; 11
 	UCSRB = 0x00;
-  4c:	1a b8       	out	0x0a, r1	; 10
+ 5da:	1a b8       	out	0x0a, r1	; 10
 	UCSRC = 0x06;
-  4e:	86 e0       	ldi	r24, 0x06	; 6
-  50:	80 bd       	out	0x20, r24	; 32
+ 5dc:	86 e0       	ldi	r24, 0x06	; 6
+ 5de:	80 bd       	out	0x20, r24	; 32
 	
 
 	// Asignamos el valor del valor de la tasa de transmision en baudios
 	UBRRL=UBRRVAL;			//Parte baja del byte
-  52:	83 e3       	ldi	r24, 0x33	; 51
-  54:	89 b9       	out	0x09, r24	; 9
+ 5e0:	83 e3       	ldi	r24, 0x33	; 51
+ 5e2:	89 b9       	out	0x09, r24	; 9
 	UBRRH=(UBRRVAL>>8);	//Parte alta del byte
-  56:	10 bc       	out	0x20, r1	; 32
+ 5e4:	10 bc       	out	0x20, r1	; 32
 		case 7: UCSRC &= ~(_BV(UCSZ0));break;
 		case 9: UCSRB|= _BV(UCSZ2);break;
 		default:break;
 	}
 
 	UCSRB |= (INT_TX_COMPLETA)?_BV(TXCIE):0;
-  58:	56 9a       	sbi	0x0a, 6	; 10
+ 5e6:	56 9a       	sbi	0x0a, 6	; 10
 	UCSRB |= (INT_RX_COMPLETA)?_BV(RXCIE):0;
-  5a:	57 9a       	sbi	0x0a, 7	; 10
+ 5e8:	57 9a       	sbi	0x0a, 7	; 10
 		default: break;
 	}
 
 	if(NUM_STOP==2) UCSRC |= _BV(USBS);
 	if(CLK_POL) UCSRC |= _BV(UCPOL);
 }
-  5c:	08 95       	ret
+ 5ea:	08 95       	ret
 
-0000005e <USART_EnableTx>:
+000005ec <USART_EnableTx>:
  * @PRE:    El puerto USART0 se encuentra inicializado
  * @POST:   El puerto USART0 se habilita para transmision 
  * @RETURN: Void
  */
 void USART_EnableTx(){
 	UCSRB |= _BV(TXEN);
-  5e:	53 9a       	sbi	0x0a, 3	; 10
+ 5ec:	53 9a       	sbi	0x0a, 3	; 10
 }
-  60:	08 95       	ret
+ 5ee:	08 95       	ret
 
-00000062 <USART_DisableTx>:
+000005f0 <USART_DisableTx>:
  * @PRE:    El puerto USART0 se encuentra inicializado
  * @POST:   El puerto USART0 se deshabilita para transmision 
  * @RETURN: Void
  */
 void USART_DisableTx(){
 	UCSRB &= ~_BV(TXEN);
-  62:	53 98       	cbi	0x0a, 3	; 10
+ 5f0:	53 98       	cbi	0x0a, 3	; 10
 }
-  64:	08 95       	ret
+ 5f2:	08 95       	ret
 
-00000066 <USART_EnableRx>:
+000005f4 <USART_EnableRx>:
  * @PRE:    El puerto USART0 se encuentra inicializado
  * @POST:   El puerto USART0 se habilita para Recepsion 
  * @RETURN: Void
  */
 void USART_EnableRx(){
 	UCSRB |= _BV(RXEN);
-  66:	54 9a       	sbi	0x0a, 4	; 10
+ 5f4:	54 9a       	sbi	0x0a, 4	; 10
 }
-  68:	08 95       	ret
+ 5f6:	08 95       	ret
 
-0000006a <USART_DisableRx>:
+000005f8 <USART_DisableRx>:
  * @PRE:    El puerto USART0 se encuentra inicializado
  * @POST:   El puerto USART0 se deshabilita para Recepcion 
  * @RETURN: Void
  */
  void USART_DisableRx(){
  	UCSRB &= ~_BV(RXEN);
-  6a:	54 98       	cbi	0x0a, 4	; 10
+ 5f8:	54 98       	cbi	0x0a, 4	; 10
  }
-  6c:	08 95       	ret
+ 5fa:	08 95       	ret
 
-0000006e <USART_Enviar>:
+000005fc <USART_Enviar>:
   * @RETURN: Void
   */
 void USART_Enviar(uint8_t dato){
 
 	// Espera a que se se termina la transmision anterior si esta en curso
 	while ( !( UCSRA & (1<<UDRE)) );
-  6e:	5d 9b       	sbis	0x0b, 5	; 11
-  70:	fe cf       	rjmp	.-4      	; 0x6e <USART_Enviar>
+ 5fc:	5d 9b       	sbis	0x0b, 5	; 11
+ 5fe:	fe cf       	rjmp	.-4      	; 0x5fc <USART_Enviar>
 
 	// Coloca el dato a enviar en el buffer de salida
 	UDR = dato;
-  72:	8c b9       	out	0x0c, r24	; 12
+ 600:	8c b9       	out	0x0c, r24	; 12
 
 }
-  74:	08 95       	ret
+ 602:	08 95       	ret
 
-00000076 <USART_Recibir>:
+00000604 <USART_Recibir>:
  * @RETURN: uint8_t dato -> El dato recibido en la transmision
  */
 uint8_t USART_Recibir(){
 
 	// Se espera a que se reciba un mensaje si esta no ha llegado todavia
 	while ( !(UCSRA & (1<<RXC)) );
-  76:	5f 9b       	sbis	0x0b, 7	; 11
-  78:	fe cf       	rjmp	.-4      	; 0x76 <USART_Recibir>
+ 604:	5f 9b       	sbis	0x0b, 7	; 11
+ 606:	fe cf       	rjmp	.-4      	; 0x604 <USART_Recibir>
 	return UDR;
-  7a:	8c b1       	in	r24, 0x0c	; 12
+ 608:	8c b1       	in	r24, 0x0c	; 12
 }
-  7c:	08 95       	ret
+ 60a:	08 95       	ret
 
-0000007e <USART_EnviarStrLen>:
+0000060c <USART_EnviarStrLen>:
  * @PARAMS:
  * @PRE:
  * @POST:
  * @RETURN:
  */
 void USART_EnviarStrLen(int len, char *buf){
-  7e:	fb 01       	movw	r30, r22
-  80:	06 c0       	rjmp	.+12     	; 0x8e <USART_EnviarStrLen+0x10>
+ 60c:	fb 01       	movw	r30, r22
+ 60e:	06 c0       	rjmp	.+12     	; 0x61c <USART_EnviarStrLen+0x10>
 
 	for (; len > 0; len--){
 		USART_Enviar(*buf++);
-  82:	20 81       	ld	r18, Z
+ 610:	20 81       	ld	r18, Z
   * @RETURN: Void
   */
 void USART_Enviar(uint8_t dato){
 
 	// Espera a que se se termina la transmision anterior si esta en curso
 	while ( !( UCSRA & (1<<UDRE)) );
-  84:	5d 9b       	sbis	0x0b, 5	; 11
-  86:	fe cf       	rjmp	.-4      	; 0x84 <USART_EnviarStrLen+0x6>
+ 612:	5d 9b       	sbis	0x0b, 5	; 11
+ 614:	fe cf       	rjmp	.-4      	; 0x612 <USART_EnviarStrLen+0x6>
  * @RETURN:
  */
 void USART_EnviarStrLen(int len, char *buf){
 
 	for (; len > 0; len--){
 		USART_Enviar(*buf++);
-  88:	31 96       	adiw	r30, 0x01	; 1
+ 616:	31 96       	adiw	r30, 0x01	; 1
 
 	// Espera a que se se termina la transmision anterior si esta en curso
 	while ( !( UCSRA & (1<<UDRE)) );
 
 	// Coloca el dato a enviar en el buffer de salida
 	UDR = dato;
-  8a:	2c b9       	out	0x0c, r18	; 12
+ 618:	2c b9       	out	0x0c, r18	; 12
  * @POST:
  * @RETURN:
  */
 void USART_EnviarStrLen(int len, char *buf){
 
 	for (; len > 0; len--){
-  8c:	01 97       	sbiw	r24, 0x01	; 1
-  8e:	18 16       	cp	r1, r24
-  90:	19 06       	cpc	r1, r25
-  92:	bc f3       	brlt	.-18     	; 0x82 <USART_EnviarStrLen+0x4>
+ 61a:	01 97       	sbiw	r24, 0x01	; 1
+ 61c:	18 16       	cp	r1, r24
+ 61e:	19 06       	cpc	r1, r25
+ 620:	bc f3       	brlt	.-18     	; 0x610 <USART_EnviarStrLen+0x4>
 		USART_Enviar(*buf++);
 	}
 }
-  94:	08 95       	ret
+ 622:	08 95       	ret
 
-00000096 <_exit>:
-  96:	f8 94       	cli
+00000624 <_exit>:
+ 624:	f8 94       	cli
 
-00000098 <__stop_program>:
-  98:	ff cf       	rjmp	.-2      	; 0x98 <__stop_program>
+00000626 <__stop_program>:
+ 626:	ff cf       	rjmp	.-2      	; 0x626 <__stop_program>

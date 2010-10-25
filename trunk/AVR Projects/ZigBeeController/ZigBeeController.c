@@ -10,7 +10,7 @@
  *
  * Date (Creation):	October 11th, 2010
  * Date (LastModf):	October 11th, 2010
- * Version:			0.00 (0)
+ * Version:			0.01 (0)
  */
 
 
@@ -27,8 +27,10 @@
 #include <util/delay.h>		// Convenience functions for busy-wait delay loops
 #include <avr/io.h>			// AVR device-specific IO definitions
 #include <avr/pgmspace.h>	// Program Space Utilities
+#include <avr/interrupt.h>	// Interrupts handling
 
 #include "includes/USART.h"
+#include "includes/ZigBee.h"
 
 
 //  ---------------------------------------------------------------------------
@@ -49,7 +51,16 @@ void initHardware(void);
 
 int main(void){
 	
-	_delay_ms(20);
+	
+	_delay_ms(200);
+	initHardware();
+	ZigBee_AT_Config();
+	while(1){
+		_delay_ms(200);
+	}
+	return 0;
+	
+
 }
 
 //  ---------------------------------------------------------------------------
@@ -74,6 +85,12 @@ int main(void){
  * 			ready for use.
  */
 void initHardware(void){
+
+	USART_init();
+	USART_EnableTx();
+	USART_EnableRx();
+
+	
 
 
 }

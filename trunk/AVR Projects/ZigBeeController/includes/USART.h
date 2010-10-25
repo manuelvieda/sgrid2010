@@ -213,13 +213,13 @@ void USART_EnviarStrLen(int len, char *buf);
  * USART_EnviarStr(str)
  * Envia un String por la USART
  */
-#define USART_EnviarStr(str) USART0_EnviarStrLen(sizeof(str)-1, str)
+#define USART_EnviarStr(str) USART_EnviarStrLen(sizeof(str)-1, str)
 
 /**
  * USART_EnviarLn(str)
  * Envian una linea de String (String + /n)
  */
-#define USART_EnviarLn(str) USART0_EnviarStrLen(sizeof(str)-1, str); USART0_Enviar(0x0D)
+#define USART_EnviarLn(str) USART_EnviarStrLen(sizeof(str)-1, str); USART_Enviar(0x0D)
 
 
 #endif /* _USART_H */
