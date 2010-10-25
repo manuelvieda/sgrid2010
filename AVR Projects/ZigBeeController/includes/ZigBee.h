@@ -40,6 +40,11 @@
 #ifndef _ZIGBEE_H_
 #define _ZIGBEE_H_
 
+void ZigBee_AT_Config(void);
+
+void ZigBee_AT_EnviarCh(uint8_t msg);
+
+
 #endif /* ZIGBEE_H_ */
 
 
