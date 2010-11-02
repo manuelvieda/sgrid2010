@@ -70,7 +70,7 @@
  *                    se completa la transmisión de lo que se encuentra en el registro de salida
  * ITN_TX_COMPLETA=0  No se genera la interrupcion
  */
-#define INT_TX_COMPLETA 1
+#define INT_TX_COMPLETA 0
 
 /**
  * INT_RX_COMPLETA=1  Se genera una interrupcion(Si estan habilitadas globalmente) cuando

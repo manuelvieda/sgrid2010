@@ -48,23 +48,23 @@
 #include "USART.h"
 #include "ZigBee.h"
 
-uint8_t buffer[100];
-short int ptrBuffer;
+
 
 /**
  * Rutina de atencion de interrupcion generada cuando la USART0 recibe un dato
  */
-
+/*
 ISR(USART_RXC_vect) 
 {
-
-	buffer[ptrBuffer++]=USART_Recibir();
-	//USART_Enviar(buffer[ptrBuffer-1]);
-	//USART_Enviar(ptrBuffer);
-	aa
+	USART_Enviar(USART_Recibir());
 
 
-		if(buffer[ptrBuffer-1]==0x0D){
+	
+	buffer[++ptrBuffer]=USART_Recibir();
+	USART_Enviar(buffer[ptrBuffer]);
+
+
+		if(buffer[ptrBuffer]==0x0D){
 				
 				for(uint8_t i=0; i<ptrBuffer; i++){
 				 	USART_Enviar(buffer[i]);
@@ -72,20 +72,14 @@ ISR(USART_RXC_vect)
 				ptrBuffer=0x00;
 		}
 
-	
-}
+		
 
-
-ISR(USART_TXC_vect) 
-{
-
-	//buffer[ptrBuffer++]=USART_Recibir();
-	//USART_Enviar(buffer[ptrBuffer-1]);
 	
 }
 
 
 
+*/
 
 void ZigBee_AT_EnviarCh(uint8_t msg){
 	USART_Enviar(msg);
@@ -94,97 +88,29 @@ void ZigBee_AT_EnviarCh(uint8_t msg){
 
 void ZigBee_AT_Config(){
 
-ptrBuffer=0x00;
+		sei();
+
+/*		ptrBuffer=0x00;
 
 		USART_EnviarStr("OK");
-		
-		sei();
-		while(1){
+		uint8_t i =0;
+		for(i=0; i<50; i++){
+			buffer[i]=0x00;
+			bufferMsg[i]=0x00;
+		}
 
-			if(ptrBuffer>0x0A){
-				USART_EnviarLn("Ok lineas recibidas");
-				//USART_EnviarLn(buffer);
-				ptrBuffer=0x00;
+
+		while(1){ 
+			
+			if(ptrBuffer==10){
+				USART_EnviarStr("x");
+				uint8_t j=0;
+				for(j=0; j<ptrBuffer; j++){
+					USART_Enviar(buffer[j]);
+				}
+				ptrBuffer=0;
 			}
-
 		}
 
-
+		*/
 }
-
-
-void pruebafalsar(void){
-
-	USART_EnviarLn("Start Config");
-	
-	// Tiempo muerto de espera
-	_delay_ms(100);_delay_ms(100);_delay_ms(100);_delay_ms(100);_delay_ms(100);
-	_delay_ms(100);_delay_ms(100);_delay_ms(100);_delay_ms(100);_delay_ms(100);
-	_delay_ms(100);_delay_ms(100);
-
-	// Enviamos caracteres de configuracion
-	USART_EnviarStr("+++");
-
-	// Tiempo muerto de espera
-
-	// Recibimos OK
-	uint8_t i;
-	i=0;
-	uint8_t buf[10];
-	uint8_t version[5];
-
-	uint8_t recibioOK;
-	recibioOK = 0;
-	
-	do{
-		buf[i++] = USART_Recibir();
-	}while(buf[i-1]!=0x0D);
-
-	if( (buf[0]==0x4F) && (buf[1]==0x4B) ){
-
-		i = 0;
-		_delay_ms(20);
-		USART_EnviarLn("atvr");
-		while(i<4){
-			version[i++] = USART_Recibir();
-		}
-
-		i = 0;
-		_delay_ms(20);
-		/*USART_EnviarLn("atcn");
-		_delay_ms(200);
-		USART_EnviarLn("Config OK");
-		do{
-			buf[i++] = USART_Recibir();
-		}while(buf[i-1]!=0x0D);
-
-		if( (buf[0]==0x4F) && (buf[1]==0x4B) ){
-			_delay_ms(20);
-			USART_EnviarLn("Config OK");
-
-		}*/
-
-
-
-
-	}
-	
-	
-	
-
-
-	_delay_ms(500);_delay_ms(500);_delay_ms(500);_delay_ms(500);_delay_ms(500);_delay_ms(500);_delay_ms(500);_delay_ms(500);_delay_ms(500);_delay_ms(500);
-	_delay_ms(500);_delay_ms(500);_delay_ms(500);_delay_ms(500);_delay_ms(500);_delay_ms(500);_delay_ms(500);_delay_ms(500);_delay_ms(500);_delay_ms(500);
-	_delay_ms(500);_delay_ms(500);_delay_ms(500);_delay_ms(500);_delay_ms(500);_delay_ms(500);_delay_ms(500);_delay_ms(500);_delay_ms(500);_delay_ms(500);
-	_delay_ms(500);_delay_ms(500);_delay_ms(500);_delay_ms(500);_delay_ms(500);_delay_ms(500);
-	USART_Enviar(recibioOK+0x30);USART_Enviar(0x0D);
-	USART_Enviar(buf[0]);
-	USART_Enviar(buf[1]);
-	USART_Enviar(buf[2]);
-	USART_Enviar(version[0]);
-	USART_Enviar(version[1]);
-	USART_Enviar(version[2]);
-	USART_Enviar(version[3]);
-
-}
-

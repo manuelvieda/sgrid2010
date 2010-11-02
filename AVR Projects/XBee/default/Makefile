@@ -1,11 +1,11 @@
 ###############################################################################
-# Makefile for the project ZigBeeController
+# Makefile for the project XBee
 ###############################################################################
 
 ## General Flags
-PROJECT = ZigBeeController
-MCU = atmega8
-TARGET = ZigBeeController.elf
+PROJECT = XBee
+MCU = atmega644
+TARGET = XBee.elf
 CC = avr-gcc
 
 CPP = avr-g++
@@ -15,7 +15,7 @@ COMMON = -mmcu=$(MCU)
 
 ## Compile options common for all C compilation units.
 CFLAGS = $(COMMON)
-CFLAGS += -Wall -gdwarf-2 -std=gnu99       -DF_CPU=8000000UL -O3 -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums
+CFLAGS += -Wall -gdwarf-2 -std=gnu99   -DF_CPU=8000000UL -Os -funsigned-char -funsigned-bitfields -fpack-struct -fshort-enums
 CFLAGS += -MD -MP -MT $(*F).o -MF dep/$(@F).d 
 
 ## Assembly specific flags
@@ -25,7 +25,7 @@ ASMFLAGS += -x assembler-with-cpp -Wa,-gdwarf2
 
 ## Linker flags
 LDFLAGS = $(COMMON)
-LDFLAGS +=  -Wl,-Map=ZigBeeController.map
+LDFLAGS +=  -Wl,-Map=XBee.map
 
 
 ## Intel Hex file production flags
@@ -36,26 +36,20 @@ HEX_EEPROM_FLAGS += --set-section-flags=.eeprom="alloc,load"
 HEX_EEPROM_FLAGS += --change-section-lma .eeprom=0 --no-change-warnings
 
 
-## Include Directories
-INCLUDES = -I"C:\Users\Manuel Vieda\Documents\Smart Grids\AVR Projects\ZigBeeController\includes" 
-
 ## Objects that must be built in order to link
-OBJECTS = ZigBeeController.o ZigBee.o USART.o 
+OBJECTS = XBee.o ZigBee.o 
 
 ## Objects explicitly added by the user
 LINKONLYOBJECTS = 
 
 ## Build
-all: $(TARGET) ZigBeeController.hex ZigBeeController.eep ZigBeeController.lss size
+all: $(TARGET) XBee.hex XBee.eep XBee.lss size
 
 ## Compile
-ZigBeeController.o: ../ZigBeeController.c
+XBee.o: ../XBee.c
 	$(CC) $(INCLUDES) $(CFLAGS) -c  $<
 
-ZigBee.o: ../includes/ZigBee.c
-	$(CC) $(INCLUDES) $(CFLAGS) -c  $<
-
-USART.o: ../includes/USART.c
+ZigBee.o: ../ZigBee.c
 	$(CC) $(INCLUDES) $(CFLAGS) -c  $<
 
 ##Link
@@ -78,7 +72,7 @@ size: ${TARGET}
 ## Clean target
 .PHONY: clean
 clean:
-	-rm -rf $(OBJECTS) ZigBeeController.elf dep/* ZigBeeController.hex ZigBeeController.eep ZigBeeController.lss ZigBeeController.map
+	-rm -rf $(OBJECTS) XBee.elf dep/* XBee.hex XBee.eep XBee.lss XBee.map
 
 
 ## Other dependencies
